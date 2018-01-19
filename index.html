@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+</body>
+<!--<script src="index.js">-->
+<!--</script>-->
+<script src="system.js"></script>
+<script>
+    SystemJS.config({
+        map: {
+            'plugin-babel': 'path/to/systemjs-plugin-babel/plugin-babel.js',
+            'systemjs-babel-build': 'path/to/systemjs-plugin-babel/systemjs-babel-browser.js'
+        },
+        transpiler: 'plugin-babel'
+    });
+</script>
+<script>
+    SystemJS.import('./compiled.js')
+      .then(function (m) {
+          // console.log(add);
+        var point=new m()
+        $.extend({
+            point:point
+        })
+       $.extend(point);
+    
+    })
+  
+    .then(function(){
+        $.point.render()
+    })
+    // .then(function(m){
+    //          console.log(m)
+    // })
+
+    // SystemJS.import('./compiled.js').then(function(){
+    //        console.log(add);
+    // })
+      
+  
+
+</script>
+</html>
